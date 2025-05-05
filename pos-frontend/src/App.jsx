@@ -10,6 +10,9 @@ import Header from "./components/shared/Header";
 import { useSelector } from "react-redux";
 import useLoadData from "./hooks/useLoadData";
 import FullScreenLoader from "./components/shared/FullScreenLoader"
+import { CartProvider } from './context/CarContext';
+import PopularDishes from "./components/home/PopularDishes";
+import RecentOrder  from "./components/home/RecentOrders";
 
 function Layout() {
   const isLoading = useLoadData();
@@ -22,50 +25,52 @@ function Layout() {
   return (
     <>
       {!hideHeaderRoutes.includes(location.pathname) && <Header />}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoutes>
-              <Home />
-            </ProtectedRoutes>
-          }
-        />
-        <Route path="/auth" element={isAuth ? <Navigate to="/" /> : <Auth />} />
-        <Route
-          path="/orders"
-          element={
-            <ProtectedRoutes>
-              <Orders />
-            </ProtectedRoutes>
-          }
-        />
-        <Route
-          path="/tables"
-          element={
-            <ProtectedRoutes>
-              <Tables />
-            </ProtectedRoutes>
-          }
-        />
-        <Route
-          path="/menu"
-          element={
-            <ProtectedRoutes>
-              <Menu />
-            </ProtectedRoutes>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoutes>
-              <Dashboard />
-            </ProtectedRoutes>
-          }
-        />
-        <Route path="*" element={<div>Not Found</div>} />
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoutes>
+                <Home />
+              </ProtectedRoutes>
+            }
+          />
+          <Route path="/auth" element={isAuth ? <Navigate to="/" /> : <Auth />} />
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoutes>
+                <Orders />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/tables"
+            element={
+              <ProtectedRoutes>
+                <Tables />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/menu"
+            element={
+              <ProtectedRoutes>
+                <Menu />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoutes>
+                <Dashboard />
+              </ProtectedRoutes>
+            }
+          />
+          <Route path="*" element={<div>Not Found</div>} />
+        </Routes>
+      </CartProvider>
     </>
   );
 }

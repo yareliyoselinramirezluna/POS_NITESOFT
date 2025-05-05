@@ -1,29 +1,40 @@
 import React from "react";
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { enqueueSnackbar } from "notistack";
-import { getOrders } from "../../https/index";
 import QuantityButton from "./QuantityButton";
 import { FaTrash } from "react-icons/fa";
+import { useCart } from '../../context/CarContext';
 
 const RecentOrders = () => {
-  const { data: resData, isError } = useQuery({
-    queryKey: ["orders"],
-    queryFn: async () => {
-      return await getOrders();
-    },
-    placeholderData: keepPreviousData,
-  });
+  const { cartItems, removeItem } = useCart();
 
-  if (isError) {
-    enqueueSnackbar("Something went wrong!", { variant: "error" });
-  }
-
-  const [productsSelected, setProductsSelected] = useState([
-    { name: 'Café', price: 30, quantity: 2 },
-    { name: 'Pan', price: 15, quantity: 3 },
-    { name: 'Sándwich', price: 50, quantity: 1 },
-  ]);
+  const [productsSelected, setProductsSelected] = useState(() =>
+    cartItems.map(item => ({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity
+    }))
+  );
+  
+  // Opcional: sincronizar si cambia el carrito global
+  useEffect(() => {
+    setProductsSelected(
+      cartItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity
+      }))
+    );
+  }, [cartItems]);
+  
+  const totalMount = productsSelected.reduce(
+    (acc, product) => acc + product.price * product.quantity,
+    0
+  );
 
   const updateQuantity = (index, newQuantity) => {
     setProductsSelected((prev) =>
@@ -34,10 +45,11 @@ const RecentOrders = () => {
   };
 
   const removeProduct = (index) => {
+    const itemToRemove = productsSelected[index];
+    removeItem(itemToRemove.id);
     setProductsSelected(prev => prev.filter((_, i) => i !== index));
   };
-
-  var totalMount = 0;
+  
 
   return (
     <div className="px-8">
@@ -65,7 +77,6 @@ const RecentOrders = () => {
               }
             />
             <div>${(product.price * product.quantity).toFixed(2)}</div>
-            <div className="hidden">{ totalMount += product.price * product.quantity }</div>
             <div>
               <button onClick={() => removeProduct(index)}>
                 <FaTrash className="inline mr-2 text-red-500 hover:text-red-700 transition-colors"/>

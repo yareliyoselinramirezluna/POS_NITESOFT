@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const Greetings = () => {
   const userData = useSelector(state => state.user);
-  const [dateTime, setDateTime] = useState(new Date());
+  const [dateTime, setDateTime] = useState(new Date(2025, 3, 29, 10, 43, 0));
 
   useEffect(() => {
     const timer = setInterval(() => setDateTime(new Date()), 1000);

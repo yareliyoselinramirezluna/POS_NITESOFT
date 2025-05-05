@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
-import { MdOutlineReorder, MdTableBar } from "react-icons/md";
+import { MdOutlineReorder, MdMedicationLiquid } from "react-icons/md";
 import { CiCircleMore } from "react-icons/ci";
 import { BiPlus } from "react-icons/bi";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -61,7 +61,7 @@ const BottomNav = () => {
           isActive("/tables") ? "text-[#f5f5f5] bg-[#343434]" : "text-[#ababab]"
         } w-[300px] rounded-[20px]`}
       >
-        <MdTableBar className="inline mr-2" size={20} /> <p>Productos</p>
+        <MdMedicationLiquid className="inline mr-2" size={20} /> <p>Productos</p>
       </button>
       <button className="flex items-center justify-center font-bold text-[#ababab] w-[300px]">
         <CiCircleMore className="inline mr-2" size={20} /> <p>Otros</p>

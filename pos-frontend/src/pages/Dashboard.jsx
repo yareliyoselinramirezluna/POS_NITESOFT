@@ -66,7 +66,7 @@ const Dashboard = () => {
       {activeTab === "Ventas" && <RecentOrders />}
       {activeTab === "Pagos" && 
         <div className="text-white p-6 container mx-auto">
-          Payment Component Coming Soon
+          Aun no se han realizado pagos electronicos
         </div>
       }
 

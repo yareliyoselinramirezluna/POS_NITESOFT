@@ -36,7 +36,7 @@ const Tables = () => {
             Productos
           </h1>
         </div>
-        <div className="flex items-center justify-around gap-4">
+        {/* <div className="flex items-center justify-around gap-4">
           <button
             onClick={() => setStatus("all")}
             className={`text-[#ababab] text-lg ${
@@ -53,7 +53,7 @@ const Tables = () => {
           >
             Booked
           </button>
-        </div>
+        </div> */}
       </div>
 
       <div className="grid grid-cols-5 gap-3 px-16 py-4 h-[650px] overflow-y-scroll scrollbar-hide">

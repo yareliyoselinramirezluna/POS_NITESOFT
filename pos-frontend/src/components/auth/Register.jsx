@@ -54,7 +54,7 @@ const Register = ({setIsRegister}) => {
       <form onSubmit={handleSubmit}>
         <div>
           <label className="block text-[#ababab] mb-2 text-sm font-medium">
-            Employee Name
+            Nombre Completo
           </label>
           <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
             <input
@@ -62,7 +62,7 @@ const Register = ({setIsRegister}) => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Enter employee name"
+              placeholder="Ingresa tu Nombre Completo"
               className="bg-transparent flex-1 text-white focus:outline-none"
               required
             />
@@ -70,7 +70,7 @@ const Register = ({setIsRegister}) => {
         </div>
         <div>
           <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
-            Employee Email
+            Correo Electronico
           </label>
           <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
             <input
@@ -78,7 +78,7 @@ const Register = ({setIsRegister}) => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Enter employee email"
+              placeholder="Ingresa tu Correo Electronico"
               className="bg-transparent flex-1 text-white focus:outline-none"
               required
             />
@@ -86,7 +86,7 @@ const Register = ({setIsRegister}) => {
         </div>
         <div>
           <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
-            Employee Phone
+            Número Celular
           </label>
           <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
             <input
@@ -94,7 +94,7 @@ const Register = ({setIsRegister}) => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Enter employee phone"
+              placeholder="Ingresa tu Número Celular"
               className="bg-transparent flex-1 text-white focus:outline-none"
               required
             />
@@ -102,7 +102,7 @@ const Register = ({setIsRegister}) => {
         </div>
         <div>
           <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
-            Password
+            Contraseña
           </label>
           <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
             <input
@@ -110,7 +110,7 @@ const Register = ({setIsRegister}) => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="Enter password"
+              placeholder="Ingresa tu Contraseña"
               className="bg-transparent flex-1 text-white focus:outline-none"
               required
             />
@@ -118,7 +118,7 @@ const Register = ({setIsRegister}) => {
         </div>
         <div>
           <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
-            Choose your role
+            Elige tu rol
           </label>
 
           <div className="flex item-center gap-3 mt-4">
@@ -143,7 +143,7 @@ const Register = ({setIsRegister}) => {
           type="submit"
           className="w-full rounded-lg mt-6 py-3 text-lg bg-yellow-400 text-gray-900 font-bold"
         >
-          Sign up
+          Registrate
         </button>
       </form>
     </div>

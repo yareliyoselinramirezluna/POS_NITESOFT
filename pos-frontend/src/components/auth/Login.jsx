@@ -44,7 +44,7 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
-            Employee Email
+            Correo Electronico
           </label>
           <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
             <input
@@ -52,7 +52,7 @@ const Login = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Enter employee email"
+              placeholder="Ingresa tu Correo Electronico"
               className="bg-transparent flex-1 text-white focus:outline-none"
               required
             />
@@ -60,7 +60,7 @@ const Login = () => {
         </div>
         <div>
           <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
-            Password
+            Contraseña
           </label>
           <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
             <input
@@ -68,7 +68,7 @@ const Login = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="Enter password"
+              placeholder="Ingesa tu Contraseña"
               className="bg-transparent flex-1 text-white focus:outline-none"
               required
             />
@@ -79,7 +79,7 @@ const Login = () => {
           type="submit"
           className="w-full rounded-lg mt-6 py-3 text-lg bg-yellow-400 text-gray-900 font-bold"
         >
-          Sign in
+          Ingresar
         </button>
       </form>
     </div>
